@@ -1,20 +1,21 @@
 ---
 layout: post
 comments: true
-
-title:  "CIFAR-10 is a popular dataset small dataset"
-
+title:  "Lessons learned from manually classifying CIFAR-10"
 excerpt: "CIFAR-10 is a popular dataset small dataset for testing out Computer Vision Deep Learning learning methods. We're seeing a lot of improvements. But what is the human baseline?"
-
-date:   2023-03-8 22:00:00
-
+date:   2011-04-27 22:00:00
 ---
 
-# پیشگفتار
+### CIFAR-10
 
-دلیل اینکه تصمیم گرفتم برای نوشتن این مقالات وقت بگذارم بسیار ساده است. شیوه ها و اصولی که در اینجا ذکر شد همان چیزی است که آرزو می کردم وقتی سفرم را در زمینه یادگیری ماشین شروع کردم بدانم. داشتن یک راهنمای همه جانبه که تمام جنبه‌های pipeline یادگیری عمیق را مشخص می‌کند، منحنی یادگیری من را با حاشیه زیادی تسریع می‌کند. امیدوارم همین کار را برای شما انجام دهد. یا حداقل، یک نمای کلی از تمام اجزا و مراحل مختلف به شما ارائه دهد تا بتوانید دیدی جامع از این زمینه داشته باشید. این دانشی را که در سال‌های گذشته با کار کردن به عنوان بخشی از تیم یادگیری ماشین در کمپانی ها ی مختلف به دست آورده‌ام، جمع‌آوری می‌کند. هر پروژه به من کمک کرد چیز جدیدی یاد بگیرم و هر تیم دیدگاه تازه و منحصر به فردی را در این زمینه به من داد. این چیزی است که امیدوارم به شما منتقل کنم. پیشینه و مهارت هایی که از این مقالات به دست می آورید، فرصت های شغلی بهتری را برای شما فراهم می کند، شما را از سایر دانشمندان داده و محققان یادگیری ماشین متمایز می کند، و مهم ترین چیز: آنها شما را به یک مهندس بهتر و جامع تر تبدیل می کنند. ممنون از اینکه این وبلاگ را انتخاب کردید من عمیقا از شما قدردانی می کنم.
+> Note, this post is from 2011 and slightly outdated in some places.
 
-باسپاس فراوان
+**Statistics**. CIFAR-10 consists of 50,000 training images, all of them in 1 of 10 categories (displayed left). The test set consists of 10,000 novel images from the same categories, and the task is to classify each to its category. The state of the art is currently at about 80% classification accuracy (4000 centroids), achieved by [Adam Coates et al. (PDF)](http://ai.stanford.edu/~acoates/papers/coatesleeng_aistats_2011.pdf). This paper achieved the accuracy by using whitening, k-means to learn many centroids, and then using a soft activation function as features.
+
+**State of the Art performance.** By the way, running their method with 1600 centroids gives 77% classification accuracy. If you set the clusters to be random the accuracy becomes 70%, and if you set the clusters to be random patches from the training set, the accuracy goes up to 74%. It seems like the whole purpose of k-means is to nicely spread out the clusters around the data. I'm guessing that the 70% random clusters performance might be because many of the clusters are relatively too far away from data manifolds, and never become activated -- it's as if you had much fewer clusters to begin with.
+
+**Human Accuracy.** Over the weekend I wanted to see what kind of classification accuracy a human would achieve on this dataset. I set out to write some quick MATLAB code that would provide the interface to do this. It showed one image at a time and allowed me to press a key from 0-9 indicating my belief about its class category. My classification accuracy ended up at about **94%** on 400 images. Why not 100%? Because some images are really unfair! To give you an idea, here are some questionable images from CIFAR-10:
+
 
 
 

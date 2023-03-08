@@ -1,10 +1,9 @@
 # Site settings
-title: Machine Learning in Production
+title: MachinevLearning in Production
 email: 
 description: "Machine learning engineers"
 baseurl: ""
 url: "MachineLearninginProduction.github.io"
-twitter_username: MachineLearninginProduction
 github_username:  MachineLearninginProduction
 
 # Build settings

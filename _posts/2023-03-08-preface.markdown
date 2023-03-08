@@ -6,7 +6,7 @@ title:  "CIFAR-10 is a popular dataset small dataset"
 
 excerpt: "CIFAR-10 is a popular dataset small dataset for testing out Computer Vision Deep Learning learning methods. We're seeing a lot of improvements. But what is the human baseline?"
 
-date:   2023-03-08 22:00:00
+date:   2023-03-8 22:00:00
 
 ---
 

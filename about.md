@@ -2,7 +2,7 @@
 layout: page
 title: About
 permalink: /about/
-includelink: False
+includelink: true
 ---
 
 See my 

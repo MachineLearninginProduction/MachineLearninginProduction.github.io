@@ -1,6 +1,6 @@
 ---
 layout: post
-lang: fa
+lang: ar
 dir: rtl
 comments: true
 title:  "پیشگفتار"
